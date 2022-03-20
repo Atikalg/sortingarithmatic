@@ -11,3 +11,4 @@ g=$(($a%$b+$c))
 
 emp[((count++))]="$d $e $f $g"
 
+echo "${emp[@]}"
