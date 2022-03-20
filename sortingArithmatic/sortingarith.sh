@@ -6,4 +6,4 @@ read -p "enter the value of c : " c
 d=$(($a+$b*$c))
 e=$(($a*$b+$c))
 f=$(($c+$a/$b))
-
+g=$(($a%$b+$c))
