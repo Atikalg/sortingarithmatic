@@ -16,30 +16,20 @@ emp[((count++))]=$f
 emp[((count++))]=$g
 
 echo "${emp[@]}"
-for((j=0; j<4 ;j++))
-	do
-	i=0;
-	min=1000;
-	max=0;
 
-
-
-	for((i=0; i<4; i++))
-	do
-
-		num=$((emp[$i]))
-		if [ $num -gt $max ]
-			then
-			max=$num
-			index=$i
-		fi
-	done
-
-
-	sort[$j]=$max
-	emp[$index]=0
-
+for ((i = 0; i<4; i++))
+do
+    
+    for((j = 0; j<4-i; j++))
+    do
+    
+        if [ ${emp[j]} -gt ${emp[$((j+1))]} ]
+        then
+            # swap
+            temp=${emp[j]}
+            emp[$j]=${emp[$((j+1))]}  
+            emp[$((j+1))]=$temp
+        fi
+    done
 done
-
-echo sort: ${sort[@]}
-
+echo ${emp[@]}
